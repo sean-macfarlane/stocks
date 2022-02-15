@@ -35,7 +35,7 @@ export async function fetchSearch(query) {
 
 export async function fetchQuote(symbol) {
   try {
-    const res = axios.get(`${FINNHUB_API_URL}quote`, {
+    const res = await axios.get(`${FINNHUB_API_URL}quote`, {
       params: {
         token: API_KEY,
         symbol,

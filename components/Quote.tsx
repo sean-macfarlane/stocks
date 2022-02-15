@@ -2,13 +2,17 @@ import { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket";
 
 import { API_KEY } from "lib/finnhub";
+import { Quote as QuoteType } from "../interfaces";
 
 type Props = {
   symbol: string;
+  quote: QuoteType;
 };
 
-const Quote = ({ symbol }: Props) => {
+const Quote = ({ symbol, quote }: Props) => {
   const [data, setData] = useState();
+
+  /*
   const [previousMessageTime, setPreviousMessageTime] = useState("");
 
   // Subscribe to WebSocket and manage messages
@@ -29,12 +33,25 @@ const Quote = ({ symbol }: Props) => {
 
     setData(message.data);
   }
-  console.log(lastMessage);
+  */
+
+  const isGreenDay = quote.c > quote.pc;
 
   return (
     <div className="bg-white p-2 border-b-2 border-gray-300">
-      {data ? (
-        <div className="text-xl font-medium text-black">{data.p}</div>
+      {quote ? (
+        <div>
+          <div className="text-xl font-medium text-black">{quote.c}</div>
+          <div
+            className={`text-xl font-medium ${
+              isGreenDay ? "text-green-500" : "text-red-500"
+            }`}
+          >
+            {isGreenDay ? "+" : "-"}
+            {quote.d} ( {isGreenDay ? "+" : "-"}
+            {quote.dp}%)
+          </div>
+        </div>
       ) : (
         <p>Market Closed</p>
       )}
