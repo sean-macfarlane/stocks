@@ -1,38 +1,30 @@
 # Stock ticker challenge
+A NEXT.js stock lookup app to find up-to-date data about a stock using Finnhub's API.
 
-Welcome, entrepid developer!  Your mission, should you choose to take it, is to build a financial stock ticker SPA using the [Finn Hub API](https://finnhub.io/docs/api/introduction) and the tooling of your choice!
+## Thought Process
+I decided to make a searchbar with an autocomplete to lookup symbols, and when you click on the symbol you navigate to a symbol page where there would be more info about the company, stock price, and a stocks chart.
 
-Please take a look below at some project guidelines:
+I started with the searchbar component and I made it client-side data fetching because it is a component and the data is frequently changing. Then I made the symbol page and I initially wanted to use incremental static regeneration to load the Company profile data because this data does not change often and there are way too many symbols to pre-render them all, and for the stock price create a WebSocket to get real-time data. But for some reason the Websocket was not working with Finnhub, so I switched the page to just use Server-Side-Rendering because the stock price is time sensitive data. 
 
-## Project Conditions
+I installed Highcharts to use as the chart library because I've used it before and know they have a nice stocks package, but I ran out of time before I could actually implement a chart.
+I installed axios and react-use-websocket to use for API calls and Websocket only for convenience to save time.
 
-*Note: We've provided a [Create Next App](https://nextjs.org/docs/api-reference/create-next-app) boilerplate in this repo to get you up and running, but feel free to disregard if you have your preference of libraries / tools! We only require React and Typescript. We've also configured Jest, react testing library, and TailwindCSS*
+## Set up environment:
 
-### Part 1
-- **3 hour time limit** (If you get it done quicker, that's great! but please do not spend more than 3 hours on features)
+Install Dependencies:
+`npm install`
 
-### Part 2
+## Run:
 
-- **1 hour time limit** Use to write as many tests as you can or until your code is covered.
+### Development
 
-### Once Complete
+`npm run dev`
 
-- Zip up the project and with and special instructions if needed. Please email it back to the person who contacted you.
+### Tests
 
-## Requirements
+`npm test`
 
-- Build a **stock ticker widget** within a Single Page App page route
+### Production
 
-- Utilize the [Finn Hub API](https://finnhub.io) to draw dynamic fintech data to hydrate this widget
-  - You will need to provision a free API Key
-
-- Ensure any components, state, or controllers are covered by unit tests.
-  - **Be sure to write cogent tests that are self documenting and test both happy + failure paths!**
-
-## Helpful starting points
-
-- [Latest pricing endpoint](https://finnhub.io/docs/api/quote)
-
-- [Company News](https://finnhub.io/docs/api/company-news)
-
-- Or anything else you find interesting or worth displaying!
+`npm run build`
+`npm start`

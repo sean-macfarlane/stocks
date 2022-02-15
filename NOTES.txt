@@ -1,9 +1,0 @@
-Notes:
-
-- I installed axios and react-use-websocket to use for API calls and Websocket only for convenience to save time 
-
-- for the symbol page I used incremental static regeneration to load the Company profile data because this data does not change often and there are way too many symbols to pre-render them all. 
-- for the symbol price component I used a websocket to get real-time quote data.
-- for the search bar component I used client-side data fetching because it is a component.
-
-- I installed Highcharts to use as the chart library because I've used it before and know they have a nice stocks package, but I ran out of time to actually implement a chart
