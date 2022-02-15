@@ -4,8 +4,8 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { fetchCompany, fetchSearch, fetchQuote } from "lib/finnhub";
 import Quote from "components/quote";
+import { fetchCompany, fetchSearch, fetchQuote } from "../lib/finnhub";
 
 import { Company, Quote as QuoteType } from "../interfaces";
 

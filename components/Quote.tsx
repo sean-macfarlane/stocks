@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket";
 
-import { API_KEY } from "lib/finnhub";
+import { API_KEY } from "../lib/finnhub";
 import { Quote as QuoteType } from "../interfaces";
 
 type Props = {

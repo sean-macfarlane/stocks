@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --coverage --silent"
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -32,6 +32,7 @@
     "eslint-plugin-testing-library": "5.0.1",
     "jest": "27.4.5",
     "jest-circus": "^26.0.6",
+    "msw": "^0.36.8",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.7",
     "ts-jest": "^27.1.2",

@@ -14,6 +14,7 @@ const SymbolList = ({ data }: Props) => {
 
   if (data.length == 0) {
     return <div>No Results.</div>;
+    ƒ;
   }
 
   return data.map((i) => <Symbol key={i.symbol} data={i} />);

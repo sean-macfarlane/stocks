@@ -4,7 +4,7 @@ import debounce from "lodash.debounce";
 
 import SymbolList from "./SymbolList";
 
-import { fetchSearch } from "lib/finnhub";
+import { fetchSearch } from "../lib/finnhub";
 
 const Searchbar = () => {
   const [symbols, setSymbols] = useState(null);
