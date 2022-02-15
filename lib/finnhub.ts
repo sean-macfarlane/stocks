@@ -3,7 +3,7 @@ import axios from "axios";
 export const FINNHUB_API_URL = "https://finnhub.io/api/v1/";
 export const API_KEY = process.env.NEXT_PUBLIC_FINNHUB_KEY;
 
-export async function fetchCompany(symbol) {
+export async function fetchCompany(symbol: string) {
   try {
     const res = await axios.get(`${FINNHUB_API_URL}stock/profile2`, {
       params: {
@@ -18,7 +18,7 @@ export async function fetchCompany(symbol) {
   }
 }
 
-export async function fetchSearch(query) {
+export async function fetchSearch(query: string) {
   try {
     const res = await axios.get(`${FINNHUB_API_URL}search`, {
       params: {
@@ -33,12 +33,12 @@ export async function fetchSearch(query) {
   }
 }
 
-export async function fetchQuote(symbol) {
+export async function fetchQuote(symbol: string) {
   try {
     const res = await axios.get(`${FINNHUB_API_URL}quote`, {
       params: {
         token: API_KEY,
-        symbol,
+        symbol: symbol.toUpperCase(),
       },
     });
 

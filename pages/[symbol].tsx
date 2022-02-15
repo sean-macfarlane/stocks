@@ -1,16 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
-import type { NextPage } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ParsedUrlQuery } from "querystring";
 
-import Quote from "components/quote";
+import Quote from "components/Quote";
 import { fetchCompany, fetchSearch, fetchQuote } from "../lib/finnhub";
 
 import { Company, Quote as QuoteType } from "../interfaces";
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const { symbol } = params;
+type Props = {
+  symbol: string;
+  company: Company;
+  quote: QuoteType;
+};
+
+interface Params extends ParsedUrlQuery {
+  symbol: string;
+}
+
+export const getServerSideProps: GetServerSideProps<Props, Params> = async ({
+  params,
+}) => {
+  const { symbol } = params!;
 
   const res = await fetchCompany(symbol);
   const res2 = await fetchQuote(symbol);
@@ -20,13 +33,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
-type Props = {
-  symbol: string;
-  company: Company;
-  quote: QuoteType;
-};
-
-const Stock: NextPage = ({ symbol, company, quote }: Props) => {
+const Stock: NextPage<Props> = ({ symbol, company, quote }: Props) => {
   return (
     <>
       <Link href="/">
