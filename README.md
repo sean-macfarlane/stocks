@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4e74c09-cf25-48b0-9ba6-153fbdfd0a8c/deploy-status)](https://app.netlify.com/sites/vinofi/deploys)
 # Stock ticker challenge
 A NEXT.js stock lookup app to find up-to-date data about a stock using Finnhub's API.
 
