@@ -47,8 +47,8 @@ const Quote = ({ symbol, quote }: Props) => {
               isGreenDay ? "text-green-500" : "text-red-500"
             }`}
           >
-            {isGreenDay ? "+" : "-"}
-            {quote.d} ( {isGreenDay ? "+" : "-"}
+            {isGreenDay && "+"}
+            {quote.d} ( {isGreenDay && "+"}
             {quote.dp}%)
           </div>
         </div>
